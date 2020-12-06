@@ -13,8 +13,8 @@ public class main {
 		
 		//System.out.println(RotorAD(RotorA(frase, 54), 54));
 		
-		System.out.println(RotorB(frase, 73));
-		System.out.println(RotorBD(RotorB(frase,73), 73));
+		System.out.println(RotorC(frase, 85));
+		System.out.println(RotorCD(RotorC(frase, 85), 85));
 	}
 	
 	
@@ -74,13 +74,49 @@ public class main {
 	}
 
 	
+	public static String RotorC(String frase, int valor) {
+		
+		String newCad = "";
+		
+		for(int i = frase.length()-1; i >= 0; i--) {
+			if (!esPar(i) && frase.charAt(i) > 31 && frase.charAt(i) <= 126) {
+				newCad = newCad + Cifrar(frase.charAt(i), valor);
+				valor++;
+			}else newCad = newCad + frase.charAt(i);
+		}
+		return newCad;
+	}
+	
+	public static String RotorCD(String frase, int valor) {
+			
+			String res = "", newCad = "";
+			
+			if (esPar(frase.length())) {
+				for(int i = 0; i < frase.length(); i++) {
+					if (esPar(i) && frase.charAt(i) > 31 && frase.charAt(i) <= 126) {
+						newCad = newCad + Descifrar(frase.charAt(i), valor);
+						valor++;
+					}else newCad = newCad + frase.charAt(i);
+				}
+			}else {
+				for(int i = 0; i < frase.length(); i++) {
+					if (!esPar(i) && frase.charAt(i) > 31 && frase.charAt(i) <= 126) {
+						newCad = newCad + Descifrar(frase.charAt(i), valor);
+						valor++;
+					}else newCad = newCad + frase.charAt(i);
+				}
+			}
+			
+			for (int i = newCad.length()-1; i >= 0; i--) res = res + newCad.charAt(i);
+			return res;
+	}
 	
 	public static boolean esPar(int indice) {
 		if (indice % 2 == 0) return true;
 		else return false;
 	}
 	
-
+	// Informe 345/32 Buque de Carga en el Atlantico.
 	public static char Cifrar (char letra, int valor) {
 			
 			int codigo=(int)letra;
