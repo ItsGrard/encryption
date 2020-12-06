@@ -9,7 +9,7 @@ public class main {
 		String frase = sc.nextLine();
 	
 	
-	System.out.println(RotorA(frase, 0));
+	//System.out.println(RotorA(frase, 0));
 		
 		//System.out.println(RotorAD(RotorA(frase, 54), 54));
 		
@@ -45,28 +45,35 @@ public class main {
 	return newCad;
 	}
 	
-
-	/*
-	public static String RotorB (String frase, int valor) {
-		String newCad ="";
+	public static String RotorB(String frase, int valor) {
+		
+		String newCad = "";
+		
 		for (int i = 0; i < frase.length(); i++) {
-			if (esPar(i)) valor++;
-			if (frase.charAt(i) >= 32 && frase.charAt(i) <= 126) newCad = newCad + Cifrar(frase.charAt(i), valor);
-			else newCad = newCad + frase.charAt(i);
 			
+			if (esPar(i)) {
+				newCad = newCad + Cifrar(frase.charAt(i), valor); 
+				valor++;
+			}else newCad = newCad + frase.charAt(i); 
 		}
-	return newCad;
+		return newCad;
 	}
-	*/
-	public static String RotorBD (String frase, int valor) {
-		String newCad ="";
-		valor = valor + frase.length() / 2;
+
+	public static String RotorBD(String frase, int valor) {
+		
+		String newCad = "";
+		
 		for (int i = 0; i < frase.length(); i++) {
-			newCad = newCad + Descifrar(frase.charAt(i), valor);
-			if (esPar(i)) valor--;
+			
+			if (esPar(i)) {
+				newCad = newCad + Descifrar(frase.charAt(i), valor); 
+				valor++;
+			}else newCad = newCad + frase.charAt(i); 
 		}
-	return newCad;
+		return newCad;
 	}
+
+	
 	
 	public static boolean esPar(int indice) {
 		if (indice % 2 == 0) return true;
@@ -83,6 +90,7 @@ public class main {
 			else resultado=desplazamiento;
 			return (char)resultado;
 	}
+	
 	public static char Descifrar (char letra, int valor) {
 		
 		int codigo=(int)letra;
