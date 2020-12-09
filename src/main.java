@@ -12,7 +12,7 @@ public class main {
 		System.out.println("Inserte 1 para cifrar o 2 para descifrar");
 		opcion = sc.nextInt();
 		
-		// not working 8/12/2020
+		
 		switch (opcion) {
 		
 		case 1:
@@ -23,7 +23,7 @@ public class main {
 		break;
 		
 		default:
-			System.out.println("Error, índice fuera del dominio.");
+			System.out.println("Error, Ã­ndice fuera del dominio.");
 		}
 	}
 	
