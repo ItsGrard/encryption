@@ -19,7 +19,7 @@ public class main {
 			System.out.println(RotorD((RotorC((RotorB((RotorA(frase, valor)), valor)), valor)), valor));
 		break;
 		case 2:
-			System.out.println(RotorDD((RotorCD((RotorBD((RotorAD(frase, valor)), valor)), valor)), valor));
+			System.out.println(RotorAD((RotorBD((RotorCD((RotorDD(frase, valor)), valor)), valor)), valor));
 		break;
 		
 		default:
